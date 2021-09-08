@@ -3,7 +3,9 @@
 import smartpy as sp
 
 class Health(sp.Contract):
+
     def __init__(self):
+    
         self.init(
             age = {
                 "0 - 18": sp.nat(0),
@@ -99,82 +101,83 @@ class Health(sp.Contract):
             },
         )
     
-    @sp.entrypoint
+    @sp.entry_point
     def add_age(self, age):
-        self.data.age[str(age)] += 1
+        self.data.age[age] += 1
 
-    @sp.entrypoint
+    @sp.entry_point
     def add_water_tds(self, water_tds):
-        self.data.water_tds[str(water_tds)] += 1
+        self.data.water_tds[water_tds] += 1
 
-    @sp.entrypoint
+    @sp.entry_point
     def add_aqi(self, aqi):
-        self.data.aqi[str(aqi)] += 1
+        self.data.aqi[aqi] += 1
 
-    @sp.entrypoint
+    @sp.entry_point
     def add_distance_from_industry(self, distance_from_industry):
-        self.data.distance_from_industry[str(distance_from_industry)] += 1
+        self.data.distance_from_industry[distance_from_industry] += 1
 
-    @sp.entrypoint
+    @sp.entry_point
     def add_disease_type(self, disease_type):
-        self.data.disease_type[str(disease_type)] += 1
+        self.data.disease_type[disease_type] += 1
 
-    @sp.entrypoint
+    @sp.entry_point
     def add_sleep_hours(self, sleep_hours):
-        self.data.sleep_hours[str(sleep_hours)] += 1
+        self.data.sleep_hours[sleep_hours] += 1
 
-    @sp.entrypoint
+    @sp.entry_point
     def add_exercise_hours(self, exercise_hours):
-        self.data.exercise_hours[str(exercise_hours)] += 1
+        self.data.exercise_hours[exercise_hours] += 1
 
-    @sp.entrypoint
+    @sp.entry_point
     def add_weight(self, weight):
-        self.data.weight[str(weight)] += 1
+        self.data.weight[weight] += 1
     
-    @sp.entrypoint
+    @sp.entry_point
     def add_height(self, height):
-        self.data.height[str(height)] += 1
-
-    @sp.entrypoint
+        self.data.height[height] += 1
+"""
+    @sp.entry_point
     def get_age(self):
         return self.data.age
 
-    @sp.entrypoint
+    @sp.entry_point
     def get_water_tds(self):
         return self.data.water_tds
 
-    @sp.entrypoint
+    @sp.entry_point
     def get_aqi(self):
         return self.data.aqi
 
-    @sp.entrypoint
+    @sp.entry_point
     def get_distance_from_industry(self):
         return self.data.distance_from_industry
 
-    @sp.entrypoint
+    @sp.entry_point
     def get_disease_type(self):
         return self.data.disease_type
 
-    @sp.entrypoint
+    @sp.entry_point
     def get_sleep_hours(self):
         return self.data.sleep_hours
     
-    @sp.entrypoint
+    @sp.entry_point
     def get_exercise_hours(self):
         return self.data.exercise_hours
 
-    @sp.entrypoint
+    @sp.entry_point
     def get_weight(self):
         return self.data.weight
 
-    @sp.entrypoint
+    @sp.entry_point
     def get_height(self):
         return self.data.height
-
+"""
 @sp.add_test(name = "Test")
 def test():
     scenario = sp.test_scenario()
     health = Health()
+    scenario += health
     scenario += health.add_age("19 - 30")
     scenario += health.add_water_tds("0 - 300")
     scenario += health.add_aqi("101 - 150")
